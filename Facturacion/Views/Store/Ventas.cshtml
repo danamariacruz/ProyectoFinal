@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Facturacion.Models.Ventas>
+
+@{
+    ViewBag.Title = "Ventas";
+}
+
+<h2>Ventas</h2>
+
+
+<div class="panel panel-default">
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Lista de articulos</th>
+                <th>Factura</th>
+                <th>SubTotal</th>
+                <th>ITBIS</th>
+                <th>Total</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>@item.DiaVenta</td>
+                    <td><a href="@Url.Action("ArticuloVenta", new { ventaId = item.VentaID})">Ver Articulos</a></td>
+                    <td><a href="@Url.Action("Factura", new { ventaId = item.VentaID})">Hacer factura a venta</a></td>
+                    <td>@item.SubTotal</td>
+                    <td>@item.ITBIS</td>
+                    <td>@item.Total</td>
+                </tr>
+                
+            }
+        </tbody>
+
+    </table>
+</div>

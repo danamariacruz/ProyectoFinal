@@ -1,0 +1,27 @@
+﻿@model Facturacion.Models.Productos
+
+@{
+    ViewBag.Title = "Detalles - " + Model.Nombre;
+}
+
+<h2>@Model.Nombre</h2>
+
+<div id="album-details">
+    <p>
+        <strong>Categoria:</strong>
+        @Model.categoria.Nombre
+    </p>
+    <p>
+        <strong>Proveedor:</strong>
+        @Model.VendedoresID.Nombre
+    </p>
+    <p>
+        <strong>Precio:</strong>
+        @String.Format("{0:F}",
+        Model.PrecioUnidad)
+    </p>
+    <p class="button">
+        @Html.ActionLink("Agregar al carrito", "Index",
+        "Carrito", new { id = Model.ProductoID }, "")
+    </p>
+</div>

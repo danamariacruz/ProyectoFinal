@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Facturacion.Models.Productos>
+
+@{
+    ViewBag.Title = "Productos";
+}
+
+<img src="~/Imagenes/download.jpg" />
+
+@using (Html.BeginForm())
+{
+    <p>
+        Buscar: @Html.TextBox("Nombre") |
+        <input type="submit" value="Buscar" />
+    </p>
+}
+
+<div class="panel panel-default">
+    
+    <div class="panel-heading">PRODUCTOS</div>
+  
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Precio por unidad</th>
+                <th>Vendedor</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.Nombre
+                    </td>
+                    <td>
+                        @item.Descripcion
+                    </td>
+                    <td>
+                        @String.Format("{0:C}",item.PrecioUnidad)
+                    </td>
+                    
+                    <td>
+                        @item.Vendedores.Nombre
+                    </td>
+                    <td>
+                        @Html.ActionLink("Carrito", "Index", "Carrito", new { id = item.ProductoID }, "")
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+

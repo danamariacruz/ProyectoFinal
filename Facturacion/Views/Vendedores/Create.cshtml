@@ -1,0 +1,48 @@
+﻿@model Facturacion.Models.Vendedores
+
+@{
+    ViewBag.Title = "Crear";
+}
+
+<h2>Crear vendedor</h2>
+
+
+<div class="form-horizontal">
+    <img src="~/Imagenes/list_add_user.png" />
+
+    @using (Html.BeginForm())
+    {
+        <div class="form-group">
+            <label>Nombre</label>
+            <input class="form-control" name="nombre" placeholder="Nombre" />
+        </div>
+
+            <div class="form-group">
+                <label>Correo</label>
+                <input class="form-control" name="correo" placeholder="Correo" />
+            </div>
+
+            <div class="form-group">
+                <label>Direccion</label>
+                <input class="form-control" name="direccion" placeholder="Su Direccion" />
+            </div>
+
+            <div class="form-group">
+                <label>Telefono</label>
+                <input class="form-control" name="telefono" placeholder="Telefono" />
+            </div>
+
+
+
+            <div class="button">
+                <input type="submit" value="Crear" class="btn btn-default" />
+            </div>
+    }
+</div>
+
+
+
+<div>
+    @Html.ActionLink("Volver a la lista", "Index")
+</div>
+

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Facturacion.Models.ListaVenta>
+
+@{
+    ViewBag.Title = "Articulo de Venta";
+}
+
+<h2>Articulos de la venta</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Productos.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ventas.VentaID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cantidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Total)
+        </th>
+      
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Productos.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ventas.VentaID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cantidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Total)
+        </td>
+        
+    </tr>
+}
+</table>
+
+<p>
+    @Html.ActionLink("Volver a ventas","Ventas","Store")
+</p>

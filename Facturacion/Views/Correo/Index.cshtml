@@ -1,0 +1,60 @@
+﻿@model Facturacion.Models.Facturas
+
+@{
+    ViewBag.Title = "Enviar";
+}
+
+<h2>Nuevo mensaje</h2>
+
+<br />
+<br />
+
+@if (ViewBag.Error != null)
+{
+    <h2>@ViewBag.Error</h2>
+}
+
+<div class="container">
+    <form method="post" action="Index">
+        <span class="form-control-static">Para:</span>
+        <input class="form-control" type="text" name="receptor" />
+        <span class="form-control-static">Asunto:</span> 
+        <input class="form-control" type="text" name="asunto" />
+        <span class="form-control-static">Mensaje:</span>
+     
+            <p name="mensaje">
+            <dl class="dl-horizontal">
+            <dt>Cliente </dt>
+
+            <dd>@Html.DisplayFor(model => model.Clientes.Nombre)</dd>
+
+            <dt>Factura ID</dt>
+
+            <dd>@Html.DisplayFor(model => model.FacturaID)</dd>
+
+            <dt>
+            @Html.DisplayNameFor(model => model.Ventas.VentaID)
+            </dt>
+
+            <dd>
+            @Html.DisplayFor(model => model.Ventas.VentaID)
+            </dd>
+
+            <dt>
+            @Html.DisplayNameFor(model => model.Ventas.Total)
+            </dt>
+
+            <dd>
+            @Html.DisplayFor(model => model.Ventas.Total)
+            </dd>
+
+
+    </dl>
+</p>
+
+          <br />
+          <br />
+        
+    </form>
+</div>
+

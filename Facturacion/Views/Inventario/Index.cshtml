@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Facturacion.Models.Productos>
+
+@{
+    ViewBag.Title = "Inventario";
+}
+
+<img src="~/Imagenes/lists.png" />
+
+<p>
+@using (Html.BeginForm("Busqueda", "Inventario", FormMethod.Get))
+{
+    <p>
+        Buscar: @Html.TextBox("Nombre") 
+        <input type="submit" value="Buscar" />
+    </p>
+}
+</p>
+
+<div class="panel panel-default">
+
+    <div class="panel-heading">INVENTARIO</div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Precio por unidad</th>
+                <th>Vendedor</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.Nombre
+                    </td>
+                    <td>
+                        @item.Descripcion
+                    </td>
+                    <td>
+                        @String.Format("{0:C}", item.PrecioUnidad)
+                    </td>
+
+                    <td>
+                        @item.Vendedores.Nombre
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Delete", new { id = item.ProductoID})"><i class="glyphicon glyphicon-trash"></i></a>
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Edit", new { id = item.ProductoID})"><i class="glyphicon glyphicon-edit"></i></a>
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

@@ -1,0 +1,55 @@
+﻿@model Facturacion.Models.Productos
+
+@{
+    ViewBag.Title = "Editar";
+}
+
+<h2>Editar cliente</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <img src="~/Imagenes/user_female_edit.png" />
+
+        <div class="form-group">
+            <label>Nombre</label>
+            @Html.TextBoxFor(x => x.Nombre, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <label>Descripcioon del producto</label>
+            @Html.TextBoxFor(x => x.Descripcion, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <label>Precio por unidad</label>
+            @Html.TextBoxFor(x => x.PrecioUnidad, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <label>Disponibilidad</label>
+            @Html.TextBoxFor(x => x.Disponibilidad, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <label>Categoria</label>
+            @Html.TextBoxFor(x => x.categoria.CategoriaId, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <label>Vendedor ID</label>
+            @Html.TextBoxFor(x => x.VendedoresID.VendedorID, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Guardar" class="btn btn-default" />
+        </div>
+    </div>
+}
+
+
+<div>
+    @Html.ActionLink("Volver a la lista", "Index")
+</div>

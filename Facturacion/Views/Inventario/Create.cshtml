@@ -1,0 +1,51 @@
+﻿@model Facturacion.Models.Productos
+
+@{
+    ViewBag.Title = "Crear";
+}
+
+<img src="~/Imagenes/edit_add.png" />
+
+@using (Html.BeginForm())
+{
+
+
+    <div class="form-group">
+        <label>Nombre</label>
+        <input class="form-control" name="nombre" placeholder="Nombre del producto" />
+    </div>
+
+            <div class="form-group">
+                <label>Descripcion</label>
+                <input class="form-control" name="descripcion" placeholder="Su descripcion" />
+            </div>
+
+            <div class="form-group">
+                <label>Precio por unidad</label>
+                <input class="form-control" name="precio" placeholder="Precio por unidad" />
+            </div>
+
+            <div class="form-group">
+                <label>Disponibilidad</label>
+                <input class="form-control" name="dispo" placeholder="Con cuanto contamos para este producto" />
+            </div>
+
+            <div class="form-group">
+                <label>Categoria</label>
+                <input class="form-control" name="categoria" placeholder="Categoria a la que pertenece" />
+            </div>
+
+            <div class="form-group">
+                <label>Vendedor</label>
+                <input class="form-control" name="vendedor" placeholder="Quien suple este producto" />
+            </div>
+
+            <div class="button">
+                <input type="submit" value="Crear" class="btn btn-default" />
+            </div>
+}
+<div>
+    @Html.ActionLink("Volver a la lista", "Index")
+</div>
+
+

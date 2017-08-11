@@ -1,0 +1,16 @@
+﻿@model Facturacion.Models.Categoria
+
+@{
+    ViewBag.Title = "";
+}
+
+<h2>Proveedor de: @Model.Nombre</h2>
+
+<ul>
+    @foreach (var item in Model.Productos)
+    {
+        <li>
+            @Html.ActionLink(item.Nombre, "Details", new {id = item.ProductoID})
+        </li>
+    }
+</ul>
